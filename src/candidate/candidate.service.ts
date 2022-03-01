@@ -1,0 +1,3 @@
+/** @format */
+// Implement the function below to store a candidate in memory
+// export const storeCandidate = ...
