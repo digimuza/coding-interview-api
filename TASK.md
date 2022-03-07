@@ -4,10 +4,10 @@
 
 Your task is to implement a Web API that stores candidates and finds the best person for a job. To do this, you need to create 2 routes:
 
-1. POST /candidates – adds a candidate to the in-memory database
+1. PUT /candidates – adds a candidate to the in-memory database
 2. GET /candidates/search?skills=skill1,skill2 - returns a list of candidates which best match the skills
 
-# 1. POST /candidates
+# 1. PUT /candidates
 
 The request body will contain the following fields:
 
@@ -19,7 +19,7 @@ The request body will contain the following fields:
 }
 ```
 
-In the example above, the candidate has four skills. The Content-Type header will be set to application/json in every such POST request.
+In the example above, the candidate has four skills. The Content-Type header will be set to application/json in every such PUT request.
 
 The server should respond with a success code in the 200–299 range (for example, "200 OK" is fine). The response body is disregarded by the client and can be empty.
 
@@ -28,7 +28,7 @@ If the request is invalid (has no body) then status code 400 (Bad Request) must 
 More Notes:
 
 - Added candidates should be kept in memory; no database/storage back-end is available.
-- Each candidate has a unique id – the server will never receive two POSTs with the same id
+- Each candidate has a unique id – the server will never receive two PUTs with the same id
 - id is any string
 - name is any string
 - skills is an array of strings; elements in the array are not duplicated (there is no [ "skill1", "skill2", "skill1" ]).
@@ -45,7 +45,7 @@ More Notes:
 
 # 3. GET /candidates/search?skills=skill1,skill2 (Closest Match)
 
-Find and return the candidate that has the **most** skills from the given list. In this example, we request three skills. If a candidate possesses all of the listed skills (3 out of 3), or has more than the other candidates, then they are considered the best and should be returned. The response should have Content-Type set to application/json and the response body should be of the same shape as the request body for POST /candidates, that is:
+Find and return the candidate that has the **most** skills from the given list. In this example, we request three skills. If a candidate possesses all of the listed skills (3 out of 3), or has more than the other candidates, then they are considered the best and should be returned. The response should have Content-Type set to application/json and the response body should be of the same shape as the request body for PUT /candidates, that is:
 Let's say we have the following candidates:
 
 ```json

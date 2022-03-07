@@ -8,9 +8,6 @@ export const createCandidate = (candidate: Candidate): Candidate => {
   throw new Error('not implemented');
 };
 
-export const searchCandidatesBySkill = (skill: string): Candidate[] => {
-  // 2. Search for candidates by skill (Exact Match)
+// 2. Search for candidates by skill (Exact Match)
 
-  // 3. Search for candidates by skill (Closest Match)
-  throw new Error('not implemented');
-};
+// 3. Search for candidates by skill (Closest Match)
