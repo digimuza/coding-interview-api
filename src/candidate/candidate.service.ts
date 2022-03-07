@@ -3,8 +3,6 @@
 
 import { Candidate } from './candidate.model';
 
-const inMemoryDb: Candidate[] = [];
-
 export const createCandidate = (candidate: Candidate): Candidate => {
   // 1. Store the candidate in memory
   throw new Error('not implemented');
