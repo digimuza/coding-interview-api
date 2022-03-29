@@ -1,0 +1,25 @@
+{
+	"info": {
+		"_postman_id": "9e7f2a97-5fe2-47fe-b566-e9abda292c57",
+		"name": "TBOL API Interview Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search Candidates By Skill",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Candidate",
+			"request": {
+				"method": "PUT",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

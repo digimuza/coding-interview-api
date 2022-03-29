@@ -7,7 +7,7 @@ Your task is to implement a Web API that stores candidates and finds the best pe
 1. PUT /candidates – adds a candidate to the in-memory database
 2. GET /candidates/search?skills=skill1,skill2 - returns a list of candidates which best match the skills
 
-# 1. PUT /candidates
+# 1. PUT /candidate
 
 The request body will contain the following fields:
 
@@ -33,9 +33,9 @@ More Notes:
 - name is any string
 - skills is an array of strings; elements in the array are not duplicated (there is no [ "skill1", "skill2", "skill1" ]).
 
-# 2. GET /candidates/search?skills=skill1,skill2 (Exact match)
+# 2. GET /candidates/search?skills=skill1,skill2 (Match all skills)
 
-First, implement the GET method to find an exact match for the skills provided. Order does not matter, and a 404 should be returned for no match.
+First, implement the GET method to find an exact match for the skills provided. The route should return candidates that have at least all the skills requested. Order does not matter, and a 404 should be returned for no match.
 
 If the request is invalid (no ?skills=...) then status code 400 (Bad Request) must be returned.
 
