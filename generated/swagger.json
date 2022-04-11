@@ -1,0 +1,120 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"Candidate": {
+				"properties": {
+					"skills": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array",
+						"description": "An array of the candidate's skills"
+					},
+					"name": {
+						"type": "string",
+						"description": "The candidate's full name"
+					},
+					"id": {
+						"type": "string",
+						"description": "ID"
+					}
+				},
+				"required": [
+					"skills",
+					"name",
+					"id"
+				],
+				"type": "object",
+				"description": "Model of the candidate"
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "coding-interview-api",
+		"version": "0.0.0",
+		"description": "Coding Interview API",
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/candidate": {
+			"put": {
+				"operationId": "CreateCandidateByAdmin",
+				"responses": {
+					"201": {
+						"description": "Success",
+						"content": {
+							"application/json": {
+								"schema": {
+									"allOf": [
+										{
+											"$ref": "#/components/schemas/Candidate"
+										}
+									],
+									"nullable": true
+								}
+							}
+						}
+					}
+				},
+				"description": "Creates a new candidate",
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"description": "Candidate data that needs to be added.",
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Candidate"
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"operationId": "SearchCandidatesBySkill",
+				"responses": {
+					"200": {
+						"description": "Success",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Candidate"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "skills",
+						"required": true,
+						"schema": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
