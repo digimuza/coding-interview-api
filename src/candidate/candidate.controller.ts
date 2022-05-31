@@ -19,7 +19,7 @@ export class CandidateController extends Controller {
   }
 
   @SuccessResponse('200', 'Success')
-  @Get()
+  @Get('search')
   public searchCandidatesBySkill(@Query('skills') skills: string[]): Candidate[] {
     throw new Error('Not implemented');
     // searchCandidatesBySkill();
