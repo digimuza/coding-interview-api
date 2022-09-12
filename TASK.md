@@ -33,7 +33,7 @@ More Notes:
 - name is any string
 - skills is an array of strings; elements in the array are not duplicated (there is no [ "skill1", "skill2", "skill1" ]).
 
-# 2. GET /candidate/search?skills=skill1,skill2 (Match all skills)
+# 2. GET /candidate/search?skills=skill1&skills=skill2 (Match all skills)
 
 First, implement the GET method to find an exact match for the skills provided. The route should return candidates that have at least all the skills requested. Order does not matter, and a 404 should be returned for no match.
 
@@ -43,7 +43,7 @@ More Notes:
 
 - skills is an array of strings; elements in the query string are not duplicated (there is no [ "skill1", "skill2", "skill1" ]).
 
-# 3. GET /candidate/search?skills=skill1,skill2 (Closest Match)
+# 3. GET /candidate/search?skills=skill1&skills=skill2 (Closest Match)
 
 Find and return the candidate that has the **most** skills from the given list. In this example, we request three skills. If a candidate possesses all of the listed skills (3 out of 3), or has more than the other candidates, then they are considered the best and should be returned. The response should have Content-Type set to application/json and the response body should be of the same shape as the request body for PUT /candidates, that is:
 Let's say we have the following candidates:
